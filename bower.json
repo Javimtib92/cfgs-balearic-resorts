@@ -1,0 +1,23 @@
+{
+  "name": "balearic-resorts.client",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Javier Mu�noz Tous"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.0",
+    "angular-ui-router": "^0.2.18"
+  }
+}

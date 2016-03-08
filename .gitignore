@@ -1,0 +1,10 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+www/lib
+www/css/main.css
+www/css/main.min.css
+www/index.html
+node_modules/
+www/app_config.js
+www/templates.js
