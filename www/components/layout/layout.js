@@ -20,8 +20,7 @@
                     url: '/app',
                     templateUrl: 'layout/layout.html',
                     controller: 'LayoutController as vm',
-                    abstract: false,
-                    authenticate: true
+                    abstract: false
                 }
             }
         ]

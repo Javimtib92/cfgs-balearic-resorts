@@ -17,16 +17,6 @@
         function login() {
             LoginService.login(vm.user);
         }
-
-        $scope.$on('event:auth-login-confirmed', function (e, userData) {
-            console.log("User", vm.user);
-            window.localStorage.setItem('auth_token', "sdfkjf");
-            $state.go('app');
-        });
-
-        $scope.$on('event:auth-login-failed', function (e, status) {
-            console.log("Failed", status);
-        });
     }
 
     function getStates() {

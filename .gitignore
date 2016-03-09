@@ -6,5 +6,5 @@ www/css/main.css
 www/css/main.min.css
 www/index.html
 node_modules/
-www/app_config.js
+www/app.config.js
 www/templates.js
