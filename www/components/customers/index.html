@@ -25,13 +25,14 @@
                     <div class="panel-body">
                       <!-- TODO table -->
                       <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table table-striped table-hover">
                           <thead>
                             <tr>
                               <th>ID</th>
                               <th>name</th>
                               <th>email</th>
                               <th>National card ID</th>
+                              <th></th>
                               <th></th>
                               <th></th>
                             </tr>
@@ -42,6 +43,7 @@
                               <td>{{::customer.name}}</td>
                               <td>{{::customer.email}}</td>
                               <td>{{::customer.nationalCardID}}</td>
+                              <td width="2%"><a href="#" ui-sref="app.customer_detail({id: customer.id})"><i class="fa fa-fw fa-eye"></i></a></td>
                               <td width="2%"><i class="fa fa-fw fa-pencil"></i></td>
                               <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
                             </tr>

@@ -10,7 +10,7 @@
     function LayoutController(LoginService, $state) {
       var vm = this;
       vm.navigationLinks = [
-        {title: 'Reservations', icon: 'fa-hotel', uiSref: 'app.reservations', activeStates: 'app.reservations'},
+        {title: 'Reservations', icon: 'fa-hotel', uiSref: 'app.reservations', activeStates: ['app.reservations', 'app.reservation_detail']},
         {title: 'Customers', icon: 'fa-user', uiSref: 'app.customers', activeStates: ['app.customers', 'app.customer_detail']}
       ];
 

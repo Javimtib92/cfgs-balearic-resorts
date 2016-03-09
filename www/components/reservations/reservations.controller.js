@@ -3,6 +3,7 @@
     angular
         .module('app.reservations.controller', [])
         .controller('ReservationsCtrl', ReservationsCtrl)
+        .controller('ReservationsDetailCtrl', ReservationsDetailCtrl)
         .run(['routerHelper', function (routerHelper) {
             routerHelper.configureStates(getStates());
         }]);
@@ -11,6 +12,13 @@
     function ReservationsCtrl(reservations) {
         var vm = this;
         vm.reservations = reservations;
+    }
+
+    /* @ngInject */
+    function ReservationsDetailCtrl(reservation) {
+        var vm = this;
+        console.log(reservation);
+        vm.reservation = reservation;
     }
 
     function getStates() {
@@ -24,6 +32,19 @@
                     resolve: {
                       reservations: ['ReservationsService', function(ReservationsService) {
                         return ReservationsService.getAll();
+                      }]
+                    }
+                }
+            },
+            {
+                state: 'app.reservation_detail',
+                config: {
+                    url: '/reservations/:id',
+                    templateUrl: 'reservations/detail.html',
+                    controller: 'ReservationsDetailCtrl as vm',
+                    resolve: {
+                      reservation: ['ReservationsService', '$stateParams', function(ReservationsService, $stateParams) {
+                        return ReservationsService.getByID($stateParams.id);
                       }]
                     }
                 }

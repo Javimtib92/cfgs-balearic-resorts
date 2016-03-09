@@ -16,7 +16,7 @@
 
     function CustomersDetailCtrl(customer) {
         var vm = this;
-        vm.customer = customer;console.log(customer);
+        vm.customer = customer;
     }
 
     function getStates() {

@@ -20,7 +20,9 @@
         }
 
         function getByID(id) {
-          return $http.get(AppConfig.BASE_API_URL + '/reservations/' + id);
+          return $http.get(AppConfig.BASE_API_URL + '/reservations/' + id).then(function(data) {
+            return data.data.data;
+          });
         }
     }
 })();
