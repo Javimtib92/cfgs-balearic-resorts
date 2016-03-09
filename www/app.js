@@ -12,7 +12,8 @@
         'app.layout',
         'app.reservations',
         'app.customers',
-        'app.categories'
+        'app.categories',
+        'app.hotels'
     ])
         .config(appConfig)
         .run(appRun);

@@ -38,6 +38,7 @@
                               <th></th>
                               <th></th>
                               <th></th>
+                              <th></th>
                             </tr>
                           </thead>
                           <tbody>
@@ -45,11 +46,12 @@
                               <td>{{::reservation.id}}</td>
                               <td><a href="#" ui-sref="app.customer_detail({id: reservation.customer_id})">{{::reservation.customer_id}}</a></td>
                               <td><a href="#" ui-sref="app.category_detail({id: reservation.category_id})">{{::reservation.category_id}}</a></td>
-                              <td>{{::reservation.hotel_id}}</td>
+                              <td><a href="#" ui-sref="app.hotel_detail({id: reservation.hotel_id})">{{::reservation.hotel_id}}</a></td>
                               <td>{{::reservation.price}}</td>
                               <td>{{::reservation.start_date}}</td>
                               <td>{{::reservation.end_date}}</td>
                               <td width="2%"><a href="#" ui-sref="app.reservation_detail({id: reservation.id})"><i class="fa fa-fw fa-eye"></i></a></td>
+                              <td width="2%"><i class="fa fa-fw fa-hand-o-right"></i></td>
                               <td width="2%"><i class="fa fa-fw fa-pencil"></i></td>
                               <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
                             </tr>
