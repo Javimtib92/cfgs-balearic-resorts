@@ -8,8 +8,10 @@
         'templates',
         'app.config',
 
+        'app.login',
         'app.layout',
-        'app.login'
+        'app.reservations',
+        'app.customers'
     ])
         .config(appConfig)
         .run(appRun);
@@ -97,7 +99,7 @@
                   event.preventDefault();
 
                   // go to the "main" state which in our case is users
-                  $state.go('app');
+                  $state.go('app.reservations');
               }
           }
 

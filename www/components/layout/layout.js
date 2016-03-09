@@ -7,10 +7,29 @@
         }])
     .controller('LayoutController', LayoutController);
 
-    function LayoutController(LoginService) {
+    function LayoutController(LoginService, $state) {
       var vm = this;
+      vm.navigationLinks = [
+        {title: 'Reservations', icon: 'fa-hotel', uiSref: 'app.reservations', activeStates: 'app.reservations'},
+        {title: 'Customers', icon: 'fa-user', uiSref: 'app.customers', activeStates: ['app.customers', 'app.customer_detail']}
+      ];
+
+      vm.setActiveLink = function(activeStates) {
+        if(Array.isArray(activeStates)) {
+          var i = 0;
+          for(; i < activeStates.length; i++) {
+            if(activeStates[i] === $state.current.name) {
+              return "active";
+            }
+          }
+        } else {
+          if(activeStates === $state.current.name) {
+            return "active";
+          }
+        }
+      }
+
       vm.logout = function() {
-        console.log("hola");
         LoginService.logout();
       }
     }
@@ -23,7 +42,7 @@
                     url: '/app',
                     templateUrl: 'layout/layout.html',
                     controller: 'LayoutController as vm',
-                    abstract: false
+                    abstract: true
                 }
             }
         ]

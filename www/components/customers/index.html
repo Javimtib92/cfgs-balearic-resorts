@@ -1,0 +1,59 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Customers <small>Index overview</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-user"></i> Customers
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-user fa-fw"></i> Customers table</h3>
+                    </div>
+                    <div class="panel-body">
+                      <!-- TODO table -->
+                      <div class="table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>name</th>
+                              <th>email</th>
+                              <th>National card ID</th>
+                              <th></th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="customer in ::vm.customers track by customer.id">
+                              <td>{{::customer.id}}</td>
+                              <td>{{::customer.name}}</td>
+                              <td>{{::customer.email}}</td>
+                              <td>{{::customer.nationalCardID}}</td>
+                              <td width="2%"><i class="fa fa-fw fa-pencil"></i></td>
+                              <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
