@@ -44,7 +44,7 @@
                             <tr ng-repeat="reservation in ::vm.reservations track by reservation.id">
                               <td>{{::reservation.id}}</td>
                               <td><a href="#" ui-sref="app.customer_detail({id: reservation.customer_id})">{{::reservation.customer_id}}</a></td>
-                              <td>{{::reservation.category_id}}</td>
+                              <td><a href="#" ui-sref="app.category_detail({id: reservation.category_id})">{{::reservation.category_id}}</a></td>
                               <td>{{::reservation.hotel_id}}</td>
                               <td>{{::reservation.price}}</td>
                               <td>{{::reservation.start_date}}</td>

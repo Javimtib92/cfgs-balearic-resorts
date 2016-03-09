@@ -45,8 +45,8 @@
                           <tbody>
                             <tr>
                               <td>{{::vm.reservation.id}}</td>
-                              <td><a href="#" ui-sref="app.customer_detail({id: reservation.customer_id})">{{::reservation.customer_id}}</a></td>
-                              <td>{{::vm.reservation.category_id}}</td>
+                              <td><a href="#" ui-sref="app.customer_detail({id: vm.reservation.customer_id})">{{::vm.reservation.customer_id}}</a></td>
+                              <td><a href="#" ui-sref="app.category_detail({id: vm.reservation.category_id})">{{::vm.reservation.category_id}}</a></td>
                               <td>{{::vm.reservation.hotel_id}}</td>
                               <td>{{::vm.reservation.price}}</td>
                               <td>{{::vm.reservation.start_date}}</td>

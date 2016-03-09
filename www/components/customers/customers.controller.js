@@ -13,7 +13,8 @@
         var vm = this;
         vm.customers = customers;
     }
-
+    
+    /* @ngInject */
     function CustomersDetailCtrl(customer) {
         var vm = this;
         vm.customer = customer;

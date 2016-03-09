@@ -11,7 +11,8 @@
         'app.login',
         'app.layout',
         'app.reservations',
-        'app.customers'
+        'app.customers',
+        'app.categories'
     ])
         .config(appConfig)
         .run(appRun);
