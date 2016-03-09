@@ -7,9 +7,12 @@
         }])
     .controller('LayoutController', LayoutController);
 
-    function LayoutController() {
+    function LayoutController(LoginService) {
       var vm = this;
-
+      vm.logout = function() {
+        console.log("hola");
+        LoginService.logout();
+      }
     }
 
     function getStates() {
