@@ -22,12 +22,35 @@
     }
 
     /* @ngInject */
-    function AssignationsCreateCtrl($scope, AssignationsService) {
+    function AssignationsCreateCtrl($scope, AssignationsService, $log, $state) {
         var vm = this;
+        vm.choosedRoom = null;
+        vm.assign = assign;
+
+        /**
+        * Load data when view finish loading
+        **/
         $scope.$on('$viewContentLoaded', function(event){
+          // Get reservation details for view display
           vm.reservation = AssignationsService.getReservationDetails();
-          console.log("content loaded reserv", vm.reservation);
+
+          // Get list of rooms that we can assign the reservation to
+          AssignationsService.getRoomsAvailableByReservationID(vm.reservation.id).then(function(data) {
+            vm.availableRooms = data.data.data;
+            $log.log("content loaded reserv", vm.availableRooms);
+          })
         });
+
+        function assign() {
+          AssignationsService.assign(vm.choosedRoom).then(
+            function(success) {
+              $state.go('app.reservations');
+            },
+            function(error) {
+              $log.log(error);
+            }
+          );
+        }
     }
 
     function getStates() {

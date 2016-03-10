@@ -1,9 +1,23 @@
 @import "../www/lib/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "animation";
+@import "mixins";
+@import "radio-button";
+@import "outline-buttons";
+
 @import "login";
 @import "top-navigation";
 @import "side-navigation";
 
 /* Global Styles */
+
+.green {
+  color: #00E676;
+}
+
+.red{
+  color: #FF1744;
+}
+
 .layout-wrapper {
     height:100vh;
     margin-top: 100px;
@@ -11,11 +25,13 @@
 }
 
 .back-button {
-  width:200px;
-  height:10px;
-  position:absolute;
-  margin-top:16px;
-  margin-left:16px;
+  width:100%;
+  height:50px;
+  background-color:white;
+  position:fixed;
+  margin-top:1px;
+  padding-top:16px;
+  padding-left:16px;
   z-index:99999;
 
   i {
@@ -65,4 +81,23 @@
 
 .pointer{
   cursor:pointer;
+}
+
+.assignements-panel-header {
+  background:#212121!important;
+  color:#ffffff!important;
+  border-bottom-color: lighten(#212121, 10)!important;
+}
+.assignements-panel-body {
+  @include gradient(#232526, #414345);
+  color:rgba(255, 255, 255, 0.70);
+}
+
+.assignements-panel-footer{
+  background:#212121!important;
+  color:#ffffff!important;
+  border-top-color: lighten(#212121, 10)!important;
+  display: inline-block;
+  width: 100%;
+  text-align: right;
 }

@@ -1,0 +1,58 @@
+/*--------------- Radio style ---------------*/
+$radio-label-margin: 30px;
+$radio-label-padding-left: 10px;
+$radio-label-before-size: 18px;
+$radio-label-before-color-select: #1565C0;
+$radio-label-before-color-unselect: #E0E0E0;
+$radio-label-after-size: $radio-label-before-size*3;
+$ripple-color: white;
+
+@include keyframes(ripple) {
+  0%, 100% { opacity: 0; }
+  1% { opacity: 1; }
+}
+
+.radio {
+  &-input {
+    display: none;
+  }
+
+  &-label {
+    position: relative;
+    cursor: pointer;
+    margin: $radio-label-margin;
+    padding-left: ($radio-label-before-size + $radio-label-padding-left);
+    &:before, &:after {
+      position: absolute;
+      content: "";
+      @include border-radius(50%);
+      @include transition(all .3s ease);
+    }
+    &:before {
+      top: 0;
+      left: 0;
+      width: $radio-label-before-size;
+      height: $radio-label-before-size;
+      background-color: $radio-label-before-color-select;
+      @include box-shadow(inset 0 0 0 (($radio-label-before-size / 2)+4) $radio-label-before-color-unselect);
+    }
+    &:after {
+      top: 49%;
+      left: $radio-label-padding-left - 1px;
+      width: $radio-label-after-size;
+      height: $radio-label-after-size;
+      background-color: rgba($ripple-color, .3);
+      @include transform(translate(-50%, -50%) scale(0));
+    }
+  }
+
+  &-input:checked + &-label {
+    &:before {
+      @include box-shadow(inset 0 0 0 4px $radio-label-before-color-unselect);
+    }
+    &:after {
+      @include transform(translate(-50%, -50%) scale(1));
+      @include animation(ripple 1s forwards);
+    }
+  }
+}

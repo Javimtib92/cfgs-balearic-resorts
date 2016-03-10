@@ -12,7 +12,8 @@
         return {
           getAll: getAll,
           getByID: getByID,
-          store: store,
+          getRoomsAvailableByReservationID: getRoomsAvailableByReservationID,
+          assign: assign,
           showAssignView: showAssignView,
           getReservationDetails: getReservationDetails,
           setReservationDetails: setReservationDetails
@@ -30,8 +31,20 @@
           });
         }
 
-        function store() {
+        function getRoomsAvailableByReservationID(id) {
+          return $http.get(AppConfig.BASE_API_URL +
+             '/rooms/available/' + id +
+              '?start_date=' + _reservationDetails.start_date + '&end_date=' + _reservationDetails.end_date);
+        }
 
+        function assign(room) {
+          return $http.post(AppConfig.BASE_API_URL + '/assignements', {
+            'reservation_id' : _reservationDetails.id,
+            'room_id' : room,
+            'price' : _reservationDetails.price,
+            'start_date' : _reservationDetails.start_date,
+            'end_date' : _reservationDetails.end_date,
+          });
         }
 
         function showAssignView(reservationDetails) {
