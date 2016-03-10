@@ -41,7 +41,12 @@
                               <td>{{::hotel.name}}</td>
                               <td>{{::hotel.rooms_number}}</td>
                               <td>{{::hotel.stars}}</td>
-                              <td width="2%"><a href="#" ui-sref="app.hotel_detail({id: hotel.id})"><i class="fa fa-fw fa-eye"></i></a></td>
+                              <td width="2%">
+                                <a href="#" ui-sref="app.hotel_detail({id: hotel.id})"
+                                tooltip data-toggle="tooltip" data-placement="top" title="View detail">
+                                  <i class="fa fa-fw fa-eye"></i>
+                                </a>
+                              </td>
                             </tr>
                           </tbody>
                         </table>

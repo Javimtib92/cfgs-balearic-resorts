@@ -9,6 +9,9 @@
 @import "side-navigation";
 
 /* Global Styles */
+body, html {
+  height:100%;
+}
 
 .green {
   color: #00E676;
@@ -19,7 +22,6 @@
 }
 
 .layout-wrapper {
-    height:100vh;
     margin-top: 100px;
     background-color: #222;
 }
@@ -31,7 +33,6 @@
   position:fixed;
   margin-top:1px;
   padding-top:16px;
-  padding-left:16px;
   z-index:99999;
 
   i {
@@ -100,4 +101,7 @@
   display: inline-block;
   width: 100%;
   text-align: right;
+}
+.page-header{
+  margin:50px 0 20px!important;
 }

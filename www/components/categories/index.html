@@ -39,7 +39,12 @@
                               <td>{{::category.id}}</td>
                               <td>{{::category.name}}</td>
                               <td>{{::category.price}}</td>
-                              <td width="2%"><a href="#" ui-sref="app.category_detail({id: category.id})"><i class="fa fa-fw fa-eye"></i></a></td>
+                              <td width="2%">
+                                <a href="#" ui-sref="app.category_detail({id: category.id})"
+                                  tooltip data-toggle="tooltip" data-placement="top" title="View detail">
+                                  <i class="fa fa-fw fa-eye"></i>
+                                </a>
+                              </td>
                             </tr>
                           </tbody>
                         </table>

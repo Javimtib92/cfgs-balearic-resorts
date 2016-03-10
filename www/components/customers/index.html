@@ -43,9 +43,20 @@
                               <td>{{::customer.name}}</td>
                               <td>{{::customer.email}}</td>
                               <td>{{::customer.nationalCardID}}</td>
-                              <td width="2%"><a href="#" ui-sref="app.customer_detail({id: customer.id})"><i class="fa fa-fw fa-eye"></i></a></td>
-                              <td width="2%"><i class="fa fa-fw fa-pencil"></i></td>
-                              <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
+                              <td width="2%">
+                                <a href="#" ui-sref="app.customer_detail({id: customer.id})"
+                                tooltip data-toggle="tooltip" data-placement="top" title="View detail">
+                                  <i class="fa fa-fw fa-eye"></i>
+                                </a>
+                              </td>
+                              <td width="2%">
+                                <i class="fa fa-fw fa-pencil"
+                                tooltip data-toggle="tooltip" data-placement="top" title="Edit customer"></i>
+                              </td>
+                              <td width="2%">
+                                <i class="fa fa-fw fa-trash-o"
+                                tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
+                              </td>
                             </tr>
                           </tbody>
                         </table>

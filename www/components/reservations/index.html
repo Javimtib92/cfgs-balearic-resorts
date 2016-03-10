@@ -50,16 +50,31 @@
                               <td>{{::reservation.price}}</td>
                               <td>{{::reservation.start_date}}</td>
                               <td>{{::reservation.end_date}}</td>
-                              <td width="2%"><a class="pointer" ui-sref="app.reservation_detail({id: reservation.id})"><i class="fa fa-fw fa-eye"></i></a></td>
                               <td width="2%">
-                                <a class="pointer"
-                                  ng-click="vm.showAssignView(reservation);"
-                                  ng-if="::!reservation.assigned">
-                                <i class="fa fa-fw fa-hand-o-right"></i>
+                                <a class="pointer" ui-sref="app.reservation_detail({id: reservation.id})"
+                                tooltip data-toggle="tooltip" data-placement="top" title="View detail">
+                                  <i class="fa fa-fw fa-eye"></i>
                                 </a>
                               </td>
-                              <td width="2%"><i class="fa fa-fw fa-circle-o" ng-class="::reservation.assigned ? 'green' : 'red'"></i></td>
-                              <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
+                              <td width="2%">
+                                <a class="pointer"
+                                  tooltip data-toggle="tooltip" data-placement="top" title="Assign reservation"
+                                  ng-click="vm.showAssignView(reservation);"
+                                  ng-if="!reservation.assigned">
+                                <i class="fa fa-fw fa-hand-o-right"></i>
+                                </a>
+                                <a class="pointer"
+                                  tooltip data-toggle="tooltip" data-placement="top" title="Unassign reservation"
+                                  ng-click="vm.unAssign(reservation);"
+                                  ng-if="reservation.assigned">
+                                <i class="fa fa-fw fa-hand-o-left"></i>
+                                </a>
+                              </td>
+                              <td width="2%"><i class="fa fa-fw fa-circle-o" ng-class="reservation.assigned ? 'green' : 'red'"></i></td>
+                              <td width="2%">
+                                <i class="fa fa-fw fa-trash-o"
+                                tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
+                              </td>
                             </tr>
                           </tbody>
                         </table>

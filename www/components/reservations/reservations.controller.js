@@ -9,17 +9,19 @@
         }]);
 
     /* @ngInject */
-    function ReservationsCtrl(reservations, AssignationsService) {
+    function ReservationsCtrl(reservations, AssignationsService, ReservationsService, $log) {
         var vm = this;
         vm.reservations = reservations;
         vm.showAssignView = AssignationsService.showAssignView;
+        vm.unAssign = ReservationsService.unAssign;
     }
 
     /* @ngInject */
-    function ReservationsDetailCtrl(reservation, AssignationsService) {
+    function ReservationsDetailCtrl(reservation, AssignationsService, ReservationsService, $log) {
         var vm = this;
         vm.reservation = reservation;
         vm.showAssignView = AssignationsService.showAssignView;
+        vm.unAssign = ReservationsService.unAssign;
     }
 
     function getStates() {

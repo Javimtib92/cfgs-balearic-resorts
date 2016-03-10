@@ -52,9 +52,24 @@
                               <td>{{::vm.reservation.price}}</td>
                               <td>{{::vm.reservation.start_date}}</td>
                               <td>{{::vm.reservation.end_date}}</td>
-                              <td width="2%"><a class="pointer" ng-click="vm.showAssignView(vm.reservation);"><i class="fa fa-fw fa-hand-o-right"></i></a></td>
-                              <td width="2%"><i class="fa fa-fw fa-pencil"></i></td>
-                              <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
+                              <td width="2%">
+                                <a class="pointer"
+                                ng-click="vm.showAssignView(vm.reservation);"
+                                ng-if="!vm.reservation.assigned"
+                                tooltip data-toggle="tooltip" data-placement="top" title="Assign reservation">
+                                  <i class="fa fa-fw fa-hand-o-right"></i>
+                                </a>
+                                <a class="pointer"
+                                  ng-click="vm.unAssign(vm.reservation);"
+                                  ng-if="vm.reservation.assigned"
+                                  tooltip data-toggle="tooltip" data-placement="top" title="Unassign reservation">
+                                <i class="fa fa-fw fa-hand-o-left"></i>
+                              </td>
+                              <td width="2%"><i class="fa fa-fw fa-circle-o" ng-class="vm.reservation.assigned ? 'green' : 'red'"></i></td>
+                              <td width="2%">
+                                <i class="fa fa-fw fa-trash-o"
+                                tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
