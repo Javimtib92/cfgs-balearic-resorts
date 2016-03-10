@@ -11,7 +11,8 @@
         return {
           getAll: getAll,
           getByID: getByID,
-          unAssign: unAssign
+          unAssign: unAssign,
+          destroy: destroy
         }
 
         function getAll() {
@@ -24,6 +25,10 @@
           return $http.get(AppConfig.BASE_API_URL + '/reservations/' + id).then(function(data) {
             return data.data.data;
           });
+        }
+
+        function destroy(id) {
+          return $http.delete(AppConfig.BASE_API_URL + '/reservations/' + id);
         }
 
         function unAssign(reservation) {

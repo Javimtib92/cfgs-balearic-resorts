@@ -42,7 +42,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr ng-repeat="reservation in ::vm.reservations track by reservation.id">
+                            <tr ng-repeat="reservation in vm.reservations track by reservation.id">
                               <td>{{::reservation.id}}</td>
                               <td><a href="#" ui-sref="app.customer_detail({id: reservation.customer_id})">{{::reservation.customer_id}}</a></td>
                               <td><a href="#" ui-sref="app.category_detail({id: reservation.category_id})">{{::reservation.category_id}}</a></td>
@@ -72,8 +72,11 @@
                               </td>
                               <td width="2%"><i class="fa fa-fw fa-circle-o" ng-class="reservation.assigned ? 'green' : 'red'"></i></td>
                               <td width="2%">
-                                <i class="fa fa-fw fa-trash-o"
-                                tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
+                                <a class="pointer"
+                                ng-click="vm.remove(reservation);">
+                                  <i class="fa fa-fw fa-trash-o"
+                                  tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
+                                </a>
                               </td>
                             </tr>
                           </tbody>
