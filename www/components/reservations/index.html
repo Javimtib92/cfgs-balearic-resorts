@@ -50,8 +50,8 @@
                               <td>{{::reservation.price}}</td>
                               <td>{{::reservation.start_date}}</td>
                               <td>{{::reservation.end_date}}</td>
-                              <td width="2%"><a href="#" ui-sref="app.reservation_detail({id: reservation.id})"><i class="fa fa-fw fa-eye"></i></a></td>
-                              <td width="2%"><i class="fa fa-fw fa-hand-o-right"></i></td>
+                              <td width="2%"><a class="pointer" ui-sref="app.reservation_detail({id: reservation.id})"><i class="fa fa-fw fa-eye"></i></a></td>
+                              <td width="2%"><a class="pointer" ng-click="vm.showAssignView(reservation);"><i class="fa fa-fw fa-hand-o-right"></i></a></td>
                               <td width="2%"><i class="fa fa-fw fa-pencil"></i></td>
                               <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
                             </tr>

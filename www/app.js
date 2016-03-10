@@ -13,7 +13,8 @@
         'app.reservations',
         'app.customers',
         'app.categories',
-        'app.hotels'
+        'app.hotels',
+        'app.assignations'
     ])
         .config(appConfig)
         .run(appRun);

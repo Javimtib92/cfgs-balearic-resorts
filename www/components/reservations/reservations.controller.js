@@ -9,16 +9,17 @@
         }]);
 
     /* @ngInject */
-    function ReservationsCtrl(reservations) {
+    function ReservationsCtrl(reservations, AssignationsService) {
         var vm = this;
         vm.reservations = reservations;
+        vm.showAssignView = AssignationsService.showAssignView;
     }
 
     /* @ngInject */
-    function ReservationsDetailCtrl(reservation) {
+    function ReservationsDetailCtrl(reservation, AssignationsService) {
         var vm = this;
-        console.log(reservation);
         vm.reservation = reservation;
+        vm.showAssignView = AssignationsService.showAssignView;
     }
 
     function getStates() {

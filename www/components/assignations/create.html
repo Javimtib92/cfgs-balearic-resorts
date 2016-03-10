@@ -1,0 +1,64 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Assignations <small>Create</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <a class="pointer" ui-sref="app.assignations" style="text-decoration:none;"><i class="fa fa-hand-o-right"></i> Assignations</a>
+                    </li>
+                    <li class="active">
+                        Create
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h3 class="panel-title"><i class="fa fa-list fa-fw"></i> Reservation details</h3>
+                  </div>
+                  <div class="panel-body">
+                    <!-- TODO table -->
+                    <div class="table-responsive">
+                      <table class="table table-striped table-hover">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>customer_id</th>
+                            <th>category_id</th>
+                            <th>hotel_id</th>
+                            <th>price</th>
+                            <th>Start date</th>
+                            <th>End date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{::vm.reservation.id}}</td>
+                            <td><a href="#" ui-sref="app.customer_detail({id: vm.reservation.customer_id})">{{::vm.reservation.customer_id}}</a></td>
+                            <td><a href="#" ui-sref="app.category_detail({id: vm.reservation.category_id})">{{::vm.reservation.category_id}}</a></td>
+                            <td><a href="#" ui-sref="app.hotel_detail({id: vm.reservation.hotel_id})">{{::vm.reservation.hotel_id}}</a></td>
+                            <td>{{::vm.reservation.price}}</td>
+                            <td>{{::vm.reservation.start_date}}</td>
+                            <td>{{::vm.reservation.end_date}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

@@ -52,7 +52,7 @@
                               <td>{{::vm.reservation.price}}</td>
                               <td>{{::vm.reservation.start_date}}</td>
                               <td>{{::vm.reservation.end_date}}</td>
-                              <td width="2%"><i class="fa fa-fw fa-hand-o-right"></i></td>
+                              <td width="2%"><a class="pointer" ng-click="vm.showAssignView(vm.reservation);"><i class="fa fa-fw fa-hand-o-right"></i></a></td>
                               <td width="2%"><i class="fa fa-fw fa-pencil"></i></td>
                               <td width="2%"><i class="fa fa-fw fa-trash-o"></i></td>
                             </tr>

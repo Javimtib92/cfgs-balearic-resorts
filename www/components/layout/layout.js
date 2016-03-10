@@ -13,7 +13,8 @@
         {title: 'Reservations', icon: 'fa-hotel', uiSref: 'app.reservations', activeStates: ['app.reservations', 'app.reservation_detail']},
         {title: 'Customers', icon: 'fa-user', uiSref: 'app.customers', activeStates: ['app.customers', 'app.customer_detail']},
         {title: 'Categories', icon: 'fa-list', uiSref: 'app.categories', activeStates: ['app.categories', 'app.category_detail']},
-        {title: 'Hotels', icon: 'fa-h-square', uiSref: 'app.hotels', activeStates: ['app.hotels', 'app.hotel_detail']}
+        {title: 'Hotels', icon: 'fa-h-square', uiSref: 'app.hotels', activeStates: ['app.hotels', 'app.hotel_detail']},
+        {title: 'Assignations', icon: 'fa-hand-o-right', uiSref: 'app.assignations', activeStates: ['app.assignations', 'app.assignation_detail', 'app.assignation_create']},
       ];
 
       vm.setActiveLink = function(activeStates) {
