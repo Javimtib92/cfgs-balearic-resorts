@@ -8,8 +8,9 @@
         'templates',
         'app.config',
         'app.navigation.service',
+        'app.utils.service',
         'app.directives.tooltip',
-        
+
         'app.login',
         'app.layout',
         'app.reservations',

@@ -9,15 +9,42 @@
         }]);
 
     /* @ngInject */
-    function CustomersCtrl(customers) {
+    function CustomersCtrl(customers, CustomersService, UtilsService, $log) {
         var vm = this;
         vm.customers = customers;
+        vm.remove = remove;
+
+        function remove(customer) {
+          CustomersService.destroy(customer.id)
+            .then(
+              function(success) {
+                var index = UtilsService.getIndexByPropertyValueInArrayOfObjects(vm.customers, 'id', customer.id);
+                vm.customers.splice(index, 1);
+              },
+              function(err) {
+                $log.log(error);
+              }
+            )
+        }
     }
-    
+
     /* @ngInject */
-    function CustomersDetailCtrl(customer) {
+    function CustomersDetailCtrl(customer, CustomersService, $state, $log) {
         var vm = this;
         vm.customer = customer;
+        vm.remove = remove;
+
+        function remove(customer) {
+          CustomersService.destroy(customer.id)
+            .then(
+              function(success) {
+                $state.go('app.customers');
+              },
+              function(err) {
+                $log.log(err);
+              }
+            )
+        }
     }
 
     function getStates() {

@@ -9,7 +9,7 @@
         }]);
 
     /* @ngInject */
-    function ReservationsCtrl(reservations, AssignationsService, ReservationsService, $log) {
+    function ReservationsCtrl(reservations, AssignationsService, ReservationsService, $log, UtilsService) {
         var vm = this;
         vm.reservations = reservations;
         vm.showAssignView = AssignationsService.showAssignView;
@@ -20,31 +20,18 @@
           ReservationsService.destroy(reservation.id)
             .then(
               function(success) {
-                $log.log(success);
-                $log.log("vm.reservations", vm.reservations);
-                var index = getIndexByPropertyValueInArrayOfObjects(vm.reservations, 'id', reservation.id);
+                var index = UtilsService.getIndexByPropertyValueInArrayOfObjects(vm.reservations, 'id', reservation.id);
                 vm.reservations.splice(index, 1);
-                $log.log("vm.reservations", vm.reservations);
               },
               function(error) {
                 $log.log(error);
               }
-            )
-            .finally(function() {
-              $log.log("finally");
-            })
-        }
-
-        function getIndexByPropertyValueInArrayOfObjects(arr, property, value) {
-          var i = 0;
-          for (; i < arr.length; i++) {
-            if (arr[i][property] == value) return i;
-          }
+            );
         }
     }
 
     /* @ngInject */
-    function ReservationsDetailCtrl(reservation, AssignationsService, ReservationsService, $log) {
+    function ReservationsDetailCtrl(reservation, AssignationsService, ReservationsService, $log, UtilsService, $state) {
         var vm = this;
         vm.reservation = reservation;
         vm.showAssignView = AssignationsService.showAssignView;
@@ -55,26 +42,12 @@
           ReservationsService.destroy(reservation.id)
             .then(
               function(success) {
-                $log.log(success);
-                $log.log("vm.reservations", vm.reservations);
-                var index = getIndexByPropertyValueInArrayOfObjects(vm.reservations, 'id', reservation.id);
-                vm.reservations.splice(index, 1);
-                $log.log("vm.reservations", vm.reservations);
+                $state.go('app.reservations');
               },
               function(error) {
                 $log.log(error);
               }
-            )
-            .finally(function() {
-              $log.log("finally");
-            })
-          }
-
-          function getIndexByPropertyValueInArrayOfObjects(arr, property, value) {
-            var i = 0;
-            for (; i < arr.length; i++) {
-              if (arr[i][property] == value) return i;
-            }
+            );
           }
     }
 

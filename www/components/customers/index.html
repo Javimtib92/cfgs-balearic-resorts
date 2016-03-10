@@ -38,7 +38,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr ng-repeat="customer in ::vm.customers track by customer.id">
+                            <tr ng-repeat="customer in vm.customers track by customer.id">
                               <td>{{::customer.id}}</td>
                               <td>{{::customer.name}}</td>
                               <td>{{::customer.email}}</td>
@@ -54,8 +54,11 @@
                                 tooltip data-toggle="tooltip" data-placement="top" title="Edit customer"></i>
                               </td>
                               <td width="2%">
-                                <i class="fa fa-fw fa-trash-o"
-                                tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
+                                <a class="pointer"
+                                ng-click="vm.remove(customer);">
+                                  <i class="fa fa-fw fa-trash-o"
+                                  tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
+                                </a>
                               </td>
                             </tr>
                           </tbody>

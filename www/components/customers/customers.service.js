@@ -10,7 +10,8 @@
 
         return {
           getAll: getAll,
-          getByID: getByID
+          getByID: getByID,
+          destroy: destroy
         }
 
         function getAll() {
@@ -24,6 +25,10 @@
             console.log(data);
             return data.data.data;
           });
+        }
+
+        function destroy(id) {
+          return $http.delete(AppConfig.BASE_API_URL + '/customers/' + id);
         }
     }
 })();
