@@ -10,9 +10,31 @@
     background-color: #222;
 }
 
+.back-button {
+  width:200px;
+  height:10px;
+  position:absolute;
+  margin-top:16px;
+  margin-left:16px;
+  z-index:99999;
+
+  i {
+    font-size:24px;
+    color:lighten(#445567, 20);
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    z-index:99999;
+  }
+}
+
 @media(min-width:768px) {
     .layout-wrapper {
         margin-top: 50px;
+    }
+
+    .back-button {
+      margin-left: 26px;
     }
 }
 

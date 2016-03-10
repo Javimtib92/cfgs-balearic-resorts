@@ -7,6 +7,7 @@
         'app.routeHelper',
         'templates',
         'app.config',
+        'app.navigation.service',
 
         'app.login',
         'app.layout',
@@ -69,10 +70,16 @@
     };
 
     /* @ngInject */
-    function appRun($rootScope, $state) {
+    function appRun($rootScope, $state, NavigationService) {
+      NavigationService.loadPreviousStack();
+
       // $stateChangeStart is fired whenever the state changes. We can use some parameters
       // such as toState to hook into details about the state as it is changing
       $rootScope.$on('$stateChangeStart', function(event, toState) {
+
+          NavigationService.info();
+          if(NavigationService.last() !== toState.name)
+            NavigationService.put(toState.name);
 
           // Grab the user from local storage and parse it to an object
           var user = JSON.parse(localStorage.getItem('user'));

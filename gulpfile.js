@@ -25,8 +25,9 @@ const ENV_PROD = 'prod';
 
 var paths = {
   app_js_files: [
-      './www/components/**/*.js',
-      './www/services/*.js',
+      './www/**/*.js',
+      '!./www/lib/**/*.js',
+      '!./www/lib/**/**/*.js',
       './www/*.js'
   ],
   sass: ['./scss/**/*.scss'],

@@ -7,8 +7,9 @@
         }])
     .controller('LayoutController', LayoutController);
 
-    function LayoutController(LoginService, $state) {
+    function LayoutController(LoginService, $state, NavigationService) {
       var vm = this;
+      vm.goBack = NavigationService.goBack;
       vm.navigationLinks = [
         {title: 'Reservations', icon: 'fa-hotel', uiSref: 'app.reservations', activeStates: ['app.reservations', 'app.reservation_detail']},
         {title: 'Customers', icon: 'fa-user', uiSref: 'app.customers', activeStates: ['app.customers', 'app.customer_detail']},
