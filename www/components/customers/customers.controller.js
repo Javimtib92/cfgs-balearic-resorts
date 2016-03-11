@@ -4,6 +4,7 @@
         .module('app.customers.controller', [])
         .controller('CustomersCtrl', CustomersCtrl)
         .controller('CustomersDetailCtrl', CustomersDetailCtrl)
+        .controller('CustomersEditCtrl', CustomersEditCtrl)
         .run(['routerHelper', function (routerHelper) {
             routerHelper.configureStates(getStates());
         }]);
@@ -47,6 +48,17 @@
         }
     }
 
+    /* @ngInject */
+    function CustomersEditCtrl(customer, CustomersService) {
+        var vm = this;
+        vm.customer = customer;
+        vm.update = update;
+
+        function update() {
+          CustomersService.update(vm.customer);
+        };
+    }
+
     function getStates() {
         return [
             {
@@ -68,6 +80,19 @@
                     url: '/customers/:id',
                     templateUrl: 'customers/detail.html',
                     controller: 'CustomersDetailCtrl as vm',
+                    resolve: {
+                      customer: ['CustomersService', '$stateParams', function(CustomersService, $stateParams) {
+                        return CustomersService.getByID($stateParams.id);
+                      }]
+                    }
+                }
+            },
+            {
+                state: 'app.customer_edit',
+                config: {
+                    url: '/customers/:id/edit',
+                    templateUrl: 'customers/edit.html',
+                    controller: 'CustomersEditCtrl as vm',
                     resolve: {
                       customer: ['CustomersService', '$stateParams', function(CustomersService, $stateParams) {
                         return CustomersService.getByID($stateParams.id);

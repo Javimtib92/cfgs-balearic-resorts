@@ -10,8 +10,11 @@
                     <li class="active">
                         <a href="#" ui-sref="app.customers" style="text-decoration:none;"><i class="fa fa-user"></i> Customers</a>
                     </li>
+                    <li>
+                      <a href="#" ui-sref="app.customer_detail({id: vm.customer.id})" style="text-decoration:none;">{{::vm.customer.id}}</a>
+                    </li>
                     <li class="active">
-                      {{::vm.customer.id}}
+                      Edit
                     </li>
                 </ol>
             </div>
@@ -22,7 +25,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-user fa-fw"></i> Customers table</h3>
+                        <h3 class="panel-title"><i class="fa fa-user fa-fw"></i> Edit customer</h3>
                     </div>
                     <div class="panel-body">
                       <!-- TODO table -->
@@ -34,33 +37,27 @@
                               <th>name</th>
                               <th>email</th>
                               <th>National card ID</th>
-                              <th></th>
-                              <th></th>
+
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <td>{{::vm.customer.id}}</td>
-                              <td>{{::vm.customer.name}}</td>
-                              <td>{{::vm.customer.email}}</td>
-                              <td>{{::vm.customer.nationalCardID}}</td>
-                              <td width="2%">
-                                <a class="pointer" ui-sref="app.customer_edit({id: vm.customer.id})"
-                                tooltip data-toggle="tooltip" data-placement="top" title="Edit customer">
-                                  <i class="fa fa-fw fa-pencil"></i>
-                                </a>
-                              </td>
-                              <td width="2%">
-                                <a class="pointer"
-                                ng-click="vm.remove(vm.customer);">
-                                  <i class="fa fa-fw fa-trash-o"
-                                  tooltip data-toggle="tooltip" data-placement="top" title="Remove row"></i>
-                                </a>
-                              </td>
+                              <td><input type="text" name="customer.name" id="name"
+                                ng-model="vm.customer.name"/></td>
+                              <td><input type="text" name="customer.email" id="email"
+                                ng-model="vm.customer.email"/></td>
+                              <td><input type="text" name="customer.nationalCardID" id="nationalCardID"
+                                ng-model="vm.customer.nationalCardID"/></td>
+
                             </tr>
                           </tbody>
                         </table>
                       </div>
+                    </div>
+                    <div class="panel-footer custom-panel-footer">
+                      <button class="btn btn-primary btn-outline" type="button" name="button"
+                      ng-click="vm.update();">SAVE</button>
                     </div>
                 </div>
             </div>

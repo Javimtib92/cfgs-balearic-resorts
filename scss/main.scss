@@ -94,13 +94,16 @@ body, html {
   color:rgba(255, 255, 255, 0.70);
 }
 
+.custom-panel-footer {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+}
+
 .assignements-panel-footer{
   background:#212121!important;
   color:#ffffff!important;
   border-top-color: lighten(#212121, 10)!important;
-  display: inline-block;
-  width: 100%;
-  text-align: right;
 }
 .page-header{
   margin:50px 0 20px!important;

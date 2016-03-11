@@ -6,11 +6,12 @@
         .factory('CustomersService', CustomersService);
 
     /* @ngInject */
-    function CustomersService($http, AppConfig) {
+    function CustomersService($http, $state, AppConfig) {
 
         return {
           getAll: getAll,
           getByID: getByID,
+          update: update,
           destroy: destroy
         }
 
@@ -24,6 +25,12 @@
           return $http.get(AppConfig.BASE_API_URL + '/customers/' + id).then(function(data) {
             console.log(data);
             return data.data.data;
+          });
+        }
+
+        function update(customer) {
+          return $http.put(AppConfig.BASE_API_URL + '/customers/' + customer.id, customer).then(function(data) {
+            $state.go('app.customers');
           });
         }
 

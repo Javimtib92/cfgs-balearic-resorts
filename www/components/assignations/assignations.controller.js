@@ -59,7 +59,7 @@
                 state: 'app.assignations',
                 config: {
                     url: '/assignations',
-                    templateUrl: 'assignations/index.html',
+                    templateUrl: 'assignations/hotel-selection.html',
                     controller: 'AssignationsCtrl as vm',
                     resolve: {
                       assignations: ['AssignationsService', function(AssignationsService) {
