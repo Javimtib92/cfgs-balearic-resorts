@@ -3,6 +3,7 @@
 
     angular.module('app',[
         'ui.router',
+        'mwl.calendar',
         'satellizer',
         'app.routeHelper',
         'templates',

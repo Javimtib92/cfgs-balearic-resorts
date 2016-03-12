@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css"/>
     </head>
     <body ng-app="app" <!-- @if NODE_ENV='prod' --> ng-strict-di<!-- @endif -->>
         <!--[if lt IE 8]>
@@ -18,13 +19,14 @@
         <div ui-view></div>
 
         <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+        <script src="lib\moment\moment.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-animate.min.js"></script>
         <script src="lib\satellizer\satellizer.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+        <script src="lib\angular-bootstrap-calendar\dist\js\angular-bootstrap-calendar-tpls.min.js"></script>
         <!-- build:js dist/js/app.js -->
 
         <!-- inject:js -->

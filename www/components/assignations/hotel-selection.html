@@ -5,25 +5,39 @@
       <div class="row">
           <div class="col-lg-12">
               <h1 class="page-header">
-                  Customers <small>Index overview</small>
+                  Assignations <small>Index overview</small>
               </h1>
               <ol class="breadcrumb">
                   <li class="active">
-                      <i class="fa fa-user"></i> Customers
+                      <i class="fa fa-user"></i> Assignations
                   </li>
               </ol>
           </div>
       </div>
       <!-- /.row -->
 
-      <div class="row">
+      <div class="row" ng-controller="CalendarCtrl as vm">
           <div class="col-lg-12">
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      <h3 class="panel-title"><i class="fa fa-user fa-fw"></i> Customers table</h3>
+                      <select ng-model="vm.selected" ng-change="vm.loadData();"
+                              ng-options="option.name for option in vm.hotels track by option.id">
+                      </select>
                   </div>
-                  <div class="panel-body">
-                  
+                  <div class="panel-body" >
+                    <mwl-calendar
+                        view="vm.options.calendarView"
+                        view-date="vm.options.calendarDate"
+                        events="vm.events"
+                        view-title="vm.options.calendarTitle"
+                        on-event-click="eventClicked(calendarEvent)"
+                        on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                        edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+                        delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+                        on-edit-event-click="eventEdited(calendarEvent)"
+                        on-delete-event-click="eventDeleted(calendarEvent)"
+                        cell-is-open="true">
+                    </mwl-calendar>
                   </div>
               </div>
           </div>
